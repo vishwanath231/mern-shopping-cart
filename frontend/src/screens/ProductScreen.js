@@ -1,5 +1,5 @@
-import React,{ useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React,{ useEffect, useState } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import Rating from '../components/Rating';
 import { connect } from 'react-redux';
 import { getProductDetails } from '../redux/actions/ProductActions';
@@ -9,13 +9,21 @@ import Error from '../components/Error';
 
 const ProductScreen = ({ getProductDetails, productDetails }) => {
 
+    const [qty, setQty] = useState(1);
+
     const { id } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         
         getProductDetails(id)
 
     }, [getProductDetails, id]);
+
+    const addToCart = () => {
+
+        navigate(`/cart/${id}?qty=${qty}`)
+    }
 
     const { loading, error, product } = productDetails;
 
@@ -50,9 +58,9 @@ const ProductScreen = ({ getProductDetails, productDetails }) => {
                             </div>
 
                             {product.countInStock > 0 && (
-                                <div className='flex p-3 justify-between items-center'>
+                                <div className='flex p-3 justify-between border-b-2 items-center'>
                                     <div>Qty</div>
-                                    <select className='px-4 py-1'>
+                                    <select value={qty} className='px-4 py-1' onChange={(e) => setQty(e.target.value)}>
                                     {
                                         [...Array(product.countInStock).keys()].map((x) => (
                                             <option key= {x + 1} value={x + 1} >{x + 1}</option>
@@ -61,8 +69,17 @@ const ProductScreen = ({ getProductDetails, productDetails }) => {
                                     </select>
                                 </div>
                             )}
+
+                            <div className='p-3'>
+                                <button 
+                                    className='uppercase text-sm tracking-wide bg-black w-full p-3 text-white disabled:hidden' 
+                                    disabled={product.countInStock === 0}
+                                    onClick={addToCart}
+                                >
+                                Add to cart</button>
+                            </div>
                         </div>
-                        <button className='uppercase text-sm tracking-wide bg-black w-full p-3 text-white disabled:hidden' disabled={product.countInStock === 0}>Add to cart</button>
+                        
                     </div>
                 </div>
 
