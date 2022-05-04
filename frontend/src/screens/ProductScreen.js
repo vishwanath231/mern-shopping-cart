@@ -30,7 +30,7 @@ const ProductScreen = ({ getProductDetails, productDetails }) => {
 
     return (
         <div>
-            <Link to={'/'} className='hover:bg-slate-200 py-3 px-5 text-sm tracking-wide inline-block my-5 rounded uppercase'>Go Back</Link>
+            <Link to={'/'} style={{ textDecoration: "none" }} className='hover:bg-slate-200 py-3 px-4 text-sm  font-medium tracking-wide inline-block text-black  my-5 rounded uppercase'>Go Back</Link>
             
             {
                 loading ? <Loader /> : 
