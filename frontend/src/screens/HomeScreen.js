@@ -18,7 +18,7 @@ const HomeScreen = ({ productList, listProducts }) => {
 
     return (
         <div>
-            <div className='text-2xl mt-5'>Lastest Products</div>
+            <div className='text-2xl mt-5 uppercase text-black font-semibold'>Lastest Products</div>
             {
                 loading ? <Loader /> :
                 error ? <Error msg={error} /> :
