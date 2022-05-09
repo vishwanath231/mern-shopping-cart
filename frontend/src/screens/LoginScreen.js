@@ -1,7 +1,7 @@
 import React,{ useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loader from '../components/Loader';
-import Error from '../components/Error';
+import Message from '../components/Message';
 import { login } from '../redux/actions/userActions';
 import { connect } from 'react-redux';
 
@@ -54,7 +54,7 @@ const LoginScreen = ({ userLogin, login }) => {
 
         <div className='w-full md:max-w-md my-6 mx-auto'>
             <div className='text-2xl text-black tracking-wider uppercase mb-4 font-bold'>sign in</div>
-            {error && <Error msg={error} /> }
+            {error && <Message error msg={error} /> }
             {loading && <Loader />}
             <form onSubmit={submitHandler}>
                 <div className="mb-6">
