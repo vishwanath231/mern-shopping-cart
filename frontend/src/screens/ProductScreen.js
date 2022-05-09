@@ -4,7 +4,7 @@ import Rating from '../components/Rating';
 import { connect } from 'react-redux';
 import { getProductDetails } from '../redux/actions/ProductActions';
 import Loader from '../components/Loader';
-import Error from '../components/Error';
+import Message from '../components/Message';
 
 
 const ProductScreen = ({ getProductDetails, productDetails }) => {
@@ -34,7 +34,7 @@ const ProductScreen = ({ getProductDetails, productDetails }) => {
             
             {
                 loading ? <Loader /> : 
-                error ? <Error msg={error} /> :
+                error ? <Message error msg={error} /> :
 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4' >
                     <div>
@@ -49,7 +49,7 @@ const ProductScreen = ({ getProductDetails, productDetails }) => {
                         <div className='border-2'>
                             <div className='flex p-3 justify-between items-center border-b-2' >
                                 <div>Price:</div>
-                                <div>₹{product.price}</div>
+                                <div>${product.price}</div>
                             </div>
 
                             <div className='flex p-3 justify-between items-center border-b-2'>
