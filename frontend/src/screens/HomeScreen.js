@@ -3,7 +3,7 @@ import Product from '../components/Product';
 import { connect } from 'react-redux';
 import { listProducts } from '../redux/actions/ProductActions';
 import Loader from '../components/Loader';
-import Error from '../components/Error';
+import Message from '../components/Message';
 
 
 const HomeScreen = ({ productList, listProducts }) => {
@@ -21,7 +21,7 @@ const HomeScreen = ({ productList, listProducts }) => {
             <div className='text-2xl mt-5 uppercase text-black font-semibold'>Lastest Products</div>
             {
                 loading ? <Loader /> :
-                error ? <Error msg={error} /> :
+                error ? <Message error msg={error} /> :
                 <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 gap-y-7 my-5 '>
                     {
                         products.map((val) => (
