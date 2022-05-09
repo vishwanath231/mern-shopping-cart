@@ -51,7 +51,7 @@ const CartScreen = ({ cart, addToCart, removeFromCart }) => {
                                             <img src={item.image} alt={item.name} className='text-center w-20' />
                                             <Link to={`/product/${item.product}`} className='underline text-slate-500'>{item.name}</Link>
                                             
-                                            <div className='text-slate-500 text-center'>${item.price}</div>
+                                            <div className='text-slate-500 text-center'>₹{item.price}</div>
                                             
                                             <div className='text-slate-500 text-center'>
                                                 <select value={item.qty} className='' onChange={(e) => addToCart(item.product ,Number(e.target.value))}>
