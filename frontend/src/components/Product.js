@@ -13,7 +13,7 @@ const Product = ({ val }) => {
             <div className='p-4'>
                 <Link to={`/product/${val._id}`} className='hover:underline cursor-pointer'>{val.name}</Link>
                 <Rating value={val.rating} text={`${val.numReviews} reviews`} />
-                <div className='font-semibold text-xl'>₹{val.price}</div>
+                <div className='font-semibold text-xl'>${val.price}</div>
             </div>
         </div>
     )
