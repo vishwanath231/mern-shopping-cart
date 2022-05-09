@@ -144,19 +144,19 @@ const OrderScreen = () => {
                         <h2 className='p-3 border-b-2'>Order Summary</h2>
                         <div className='flex p-3 justify-between items-center border-b-2' >
                             <div>Items</div>
-                            <div>${order.itemsPrice}</div>
+                            <div>₹{order.itemsPrice}</div>
                         </div>
                         <div className='flex p-3 justify-between items-center border-b-2' >
                             <div>Shipping</div>
-                            <div>${order.shippingPrice}</div>
+                            <div>₹{order.shippingPrice}</div>
                         </div>
                         <div className='flex p-3 justify-between items-center border-b-2' >
                             <div>Tax</div>
-                            <div>${order.taxPrice}</div>
+                            <div>₹{order.taxPrice}</div>
                         </div>
                         <div className='flex p-3 justify-between items-center border-b-2' >
                             <div>Total</div>
-                            <div>${order.totalPrice}</div>
+                            <div>₹{order.totalPrice}</div>
                         </div>
                         {
                             !order.isPaid && (
