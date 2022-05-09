@@ -6,6 +6,7 @@ import morgan from 'morgan';
 import connectDB from './config/db.js';
 import productRoutes from './routes/productRoutes.js';
 import userRoutes from './routes/userRoutes.js';
+import orderRoutes from './routes/orderRoutes.js';
 import { errorHandler, notFound } from './middleware/errorMiddleware.js'
 
 
@@ -29,14 +30,18 @@ app.use(express.json());
 // cors => Cross Origin Resource Sharing
 app.use(cors())
 
-// app.use('/', (req, res) => {
-//     res.send("welcome")
-// })
 
+// Routes
 app.use('/api/products', productRoutes)
 app.use('/api/users', userRoutes)
+app.use('/api/orders', orderRoutes)
 
 
+// PayPal
+app.use('/api/config/paypal', (req, res) => res.send(process.env.PAYPAL_CLIENT_ID))
+
+
+// Middleware
 app.use(errorHandler);
 app.use(notFound);
 
