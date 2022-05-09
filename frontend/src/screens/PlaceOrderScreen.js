@@ -101,19 +101,19 @@ const PlaceOrderScreen = () => {
                         <h2 className='p-3 border-b-2'>Order Summary</h2>
                         <div className='flex p-3 justify-between items-center border-b-2' >
                             <div>Items</div>
-                            <div>${cart.itemsPrice}</div>
+                            <div>₹{cart.itemsPrice}</div>
                         </div>
                         <div className='flex p-3 justify-between items-center border-b-2' >
                             <div>Shipping</div>
-                            <div>${cart.shippingPrice}</div>
+                            <div>₹{cart.shippingPrice}</div>
                         </div>
                         <div className='flex p-3 justify-between items-center border-b-2' >
                             <div>Tax</div>
-                            <div>${cart.taxPrice}</div>
+                            <div>₹{cart.taxPrice}</div>
                         </div>
                         <div className='flex p-3 justify-between items-center border-b-2' >
                             <div>Total</div>
-                            <div>${cart.totalPrice}</div>
+                            <div>₹{cart.totalPrice}</div>
                         </div>
                         {
                             error && (
